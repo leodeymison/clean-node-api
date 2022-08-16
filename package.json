@@ -6,6 +6,7 @@
   "author": "leodeymison <leodeymisonbasquete@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^28.1.7",
     "@types/node": "^18.7.6",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "eslint": "^8.0.1",
@@ -15,8 +16,13 @@
     "eslint-plugin-promise": "^6.0.0",
     "git-commit-msg-linter": "^4.1.3",
     "husky": "^8.0.1",
+    "jest": "^28.1.3",
     "lint-staged": "^13.0.3",
     "standard": "^17.0.0",
+    "ts-jest": "^28.0.8",
     "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }

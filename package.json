@@ -6,6 +6,7 @@
   "author": "leodeymison <leodeymisonbasquete@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "lint-staged": "^13.0.3",
     "standard": "^17.0.0"
   }
 }

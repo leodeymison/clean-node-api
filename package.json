@@ -1,0 +1,8 @@
+{
+  "name": "clean-node-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/leodeymison/clean-node-api.git",
+  "author": "leodeymison <leodeymisonbasquete@gmail.com>",
+  "license": "MIT"
+}

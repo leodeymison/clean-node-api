@@ -1,5 +1,5 @@
 import { SignUpController } from './singup'
-import { InvalidParamError, MissingParamError } from '../error'
+import { InvalidParamError, MissingParamError, ServerError } from '../error'
 import { EmailValidation } from '../protocols'
 
 interface SutType {
@@ -101,5 +101,26 @@ describe('SingUp controller', () => {
     }
     sut.handle(httpRequest)
     expect(isValidSpy).toHaveBeenCalledWith('any_email@gmail.com') // Quero que seja chamado com esse email
+  })
+  test('Should return 500 if Email validator throws', () => {
+    class EmailValidatorStub implements EmailValidation {
+      isValid (email: string): boolean {
+        throw new Error()
+      }
+    }
+    const emailValidatorStub = new EmailValidatorStub()
+    const sut = new SignUpController(emailValidatorStub)
+
+    const httpRequest = {
+      body: {
+        name: 'nome',
+        email: 'any_email@gmail.com',
+        password: 'nome_password',
+        password_confirmation: 'nome_password'
+      }
+    }
+    const httpResponse = sut.handle(httpRequest)
+    expect(httpResponse.statusCode).toBe(500)
+    expect(httpResponse.body).toEqual(new ServerError())
   })
 })
